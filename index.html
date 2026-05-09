@@ -21,7 +21,7 @@
             color: var(--primario);
         }
 
-        /* Cabecera */
+        /* Cabecera Limpia */
         header {
             position: sticky;
             top: 0;
@@ -30,36 +30,18 @@
             border-bottom: 1px solid #eee;
         }
 
-        .promo-bar {
-            background: var(--primario);
-            color: white;
-            font-size: 11px;
-            text-align: center;
-            padding: 5px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
         .nav-main {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 20px; /* Un poco más de aire ahora que no hay barra superior */
         }
 
         .logo {
             font-weight: 800;
-            font-size: 20px;
+            font-size: 22px;
             letter-spacing: -0.5px;
             text-transform: uppercase;
-        }
-
-        /* Banner Principal */
-        .hero {
-            padding: 30px 20px;
-            background: var(--gris-claro);
-            text-align: center;
-            border-bottom: 1px solid #eee;
         }
 
         /* Cuadrícula de Productos */
@@ -118,18 +100,13 @@
 <body>
 
 <header>
-    <div class="promo-bar">Envíos gratis en pedidos mayores a $50 🚚</div>
     <div class="nav-main">
         <div class="logo">DE<span style="color: var(--acento);">MARKET</span></div>
-        <div id="cart-icon">🛒 <span id="cart-count">0</span></div>
+        <div id="cart-icon" style="font-size: 20px;">🛒 <span id="cart-count" style="font-size: 14px; font-weight: bold;">0</span></div>
     </div>
 </header>
 
-<section class="hero">
-    <h2 style="margin:0; font-size: 18px;">📦 Especialistas en Empaques</h2>
-    <p style="margin:5px 0 0; font-size: 14px; color: var(--secundario);">Fabricación de cajas y distribución mayorista.</p>
-</section>
-
+<!-- Contenedor directo de productos -->
 <div class="container">
     <!-- Producto 1 -->
     <div class="card">
