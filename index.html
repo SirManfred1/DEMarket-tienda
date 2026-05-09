@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEMarket | Suministros y Retail</title>
+    <title>DEMarket | Catálogo Digital</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primario: #1a1a1a;
             --acento: #00b894;
             --fondo: #ffffff;
-            --gris-claro: #f4f4f4;
+            --gris-suave: #f9f9f9;
             --secundario: #666666;
         }
 
@@ -19,9 +19,9 @@
             margin: 0;
             background-color: var(--fondo);
             color: var(--primario);
+            scroll-behavior: smooth;
         }
 
-        /* Cabecera Limpia */
         header {
             position: sticky;
             top: 0;
@@ -34,7 +34,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px; /* Un poco más de aire ahora que no hay barra superior */
+            padding: 15px 20px;
         }
 
         .logo {
@@ -44,7 +44,41 @@
             text-transform: uppercase;
         }
 
-        /* Cuadrícula de Productos */
+        /* Menú de categorías horizontal deslizable */
+        .category-scroll {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            background: white;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            gap: 10px;
+            scrollbar-width: none; /* Oculta scroll en Firefox */
+        }
+        .category-scroll::-webkit-scrollbar { display: none; } /* Oculta scroll en Chrome */
+
+        .cat-link {
+            text-decoration: none;
+            color: var(--secundario);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: var(--gris-suave);
+        }
+
+        /* Títulos de Categoría */
+        .category-title {
+            padding: 20px 15px 10px;
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--primario);
+            border-left: 4px solid var(--acento);
+            margin: 10px 0;
+            background: var(--gris-suave);
+        }
+
         .container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -57,30 +91,28 @@
             border: 1px solid #eaeaea;
             border-radius: 12px;
             overflow: hidden;
-            position: relative;
         }
 
         .card img {
             width: 100%;
             aspect-ratio: 1 / 1;
             object-fit: cover;
+            background: #fdfdfd;
         }
 
-        .info {
-            padding: 12px;
-        }
+        .info { padding: 12px; }
 
         .product-title {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--secundario);
             margin-bottom: 5px;
             display: block;
-            height: 32px;
+            height: 30px;
             overflow: hidden;
         }
 
         .product-price {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
         }
 
@@ -89,11 +121,12 @@
             background: var(--primario);
             color: white;
             border: none;
-            padding: 10px;
-            border-radius: 8px;
+            padding: 8px;
+            border-radius: 6px;
             font-weight: 600;
-            margin-top: 10px;
+            margin-top: 8px;
             cursor: pointer;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -102,32 +135,60 @@
 <header>
     <div class="nav-main">
         <div class="logo">DE<span style="color: var(--acento);">MARKET</span></div>
-        <div id="cart-icon" style="font-size: 20px;">🛒 <span id="cart-count" style="font-size: 14px; font-weight: bold;">0</span></div>
+        <div id="cart-icon">🛒 <span id="cart-count">0</span></div>
+    </div>
+    <!-- Menú de categorías rápido -->
+    <div class="category-scroll">
+        <a href="#aluminio" class="cat-link">Aluminio</a>
+        <a href="#anime" class="cat-link">Anime</a>
+        <a href="#bolsas-papel" class="cat-link">Bolsas Papel</a>
+        <a href="#bolsas-plastico" class="cat-link">Bolsas Plásticas</a>
+        <a href="#carton" class="cat-link">Cartón</a>
+        <a href="#envases" class="cat-link">Envases</a>
+        <a href="#reposteria" class="cat-link">Repostería</a>
     </div>
 </header>
 
-<!-- Contenedor directo de productos -->
+<!-- CATEGORÍA: ALUMINIO -->
+<div id="aluminio" class="category-title">Aluminio</div>
 <div class="container">
-    <!-- Producto 1 -->
     <div class="card">
-        <img src="https://via.placeholder.com/300x300/f4f4f4/000000?text=Caja+Repostería" alt="Caja">
+        <img src="https://via.placeholder.com/300?text=Papel+Aluminio" alt="Producto">
         <div class="info">
-            <span class="product-title">Caja para Tortas 20x20x10 (Unidad)</span>
-            <span class="product-price">$1.20</span>
-            <button class="btn-add">Añadir</button>
-        </div>
-    </div>
-
-    <!-- Producto 2 -->
-    <div class="card">
-        <img src="https://via.placeholder.com/300x300/f4f4f4/000000?text=Envase+PT-1" alt="Envase">
-        <div class="info">
-            <span class="product-title">Envase Plástico PT-1 (Bulto 100u)</span>
-            <span class="product-price">$15.50</span>
+            <span class="product-title">Rollo de Papel Aluminio 30mt</span>
+            <span class="product-price">$4.50</span>
             <button class="btn-add">Añadir</button>
         </div>
     </div>
 </div>
+
+<!-- CATEGORÍA: ANIME -->
+<div id="anime" class="category-title">Anime</div>
+<div class="container">
+    <div class="card">
+        <img src="https://via.placeholder.com/300?text=Plato+Anime" alt="Producto">
+        <div class="info">
+            <span class="product-title">Plato de Anime #1 (Bulto)</span>
+            <span class="product-price">$12.00</span>
+            <button class="btn-add">Añadir</button>
+        </div>
+    </div>
+</div>
+
+<!-- CATEGORÍA: CARTÓN -->
+<div id="carton" class="category-title">Cartón</div>
+<div class="container">
+    <div class="card">
+        <img src="https://via.placeholder.com/300?text=Caja+Pizza" alt="Producto">
+        <div class="info">
+            <span class="product-title">Caja de Pizza 12" (Pack 25u)</span>
+            <span class="product-price">$8.50</span>
+            <button class="btn-add">Añadir</button>
+        </div>
+    </div>
+</div>
+
+<!-- Puedes seguir añadiendo bloques de CATEGORÍA y CONTAINER para las 20 áreas -->
 
 </body>
 </html>
